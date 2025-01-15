@@ -41,6 +41,7 @@ module "test-vm" {
 #  network_id     = yandex_vpc_network.develop.id
   network_id     = module.develop_a.network_id
   subnet_zones   = [var.vpc_subnet_a_zone,var.vpc_subnet_b_zone]
+#  subnet_ids     = [yandex_vpc_subnet.develop_a.id,yandex_vpc_subnet.develop_b.id]
   subnet_ids     = [module.develop_a.subnet_id,module.develop_b.subnet_id]
   instance_name  = var.module_1_instance_name
   instance_count = var.module_1_instance_count
@@ -61,6 +62,7 @@ module "example-vm" {
 #  network_id     = yandex_vpc_network.develop.id
   network_id     = module.develop_a.network_id
   subnet_zones   = [var.vpc_subnet_a_zone]
+#  subnet_ids     = [yandex_vpc_subnet.develop_a.id]
   subnet_ids     = [module.develop_a.subnet_id]
   instance_name  = var.module_2_instance_name
   instance_count = var.module_2_instance_count
