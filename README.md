@@ -32,20 +32,16 @@ packages:
 
 <table>
   <tr>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
     <td>develop-webs-0</td>
-    <td><img src="./pictures/1_develop-webs-0.png" width=890 height=270></td>
+    <td><img src="./pictures/1_develop-webs-0.png" width=890 height=170></td>
   </tr>
   <tr>
     <td>develop-webs-1</td>
-    <td><img src="./pictures/1_develop-webs-1.png" width=890 height=270></td>
+    <td><img src="./pictures/1_develop-webs-1.png" width=890 height=170></td>
   </tr>
   <tr>
     <td>stage-web-stage-0</td>
-    <td><img src="./pictures/1_stage-web-stage-0.png" width=890 height=270></td>
+    <td><img src="./pictures/1_stage-web-stage-0.png" width=890 height=170></td>
   </tr>
 </table>
 
