@@ -150,39 +150,39 @@ terraform-docs markdown table --output-file ./docs/terraform-docs.md .
 
 terraform state list
 
-[terraform state list](./pictures/3_State_list.png)
+![terraform state list](./pictures/3_State_list.png)
 
 terraform state show 'module.develop_a.yandex_vpc_network.mod_vpc'
 
-[terraform state show](./pictures/3_State_show_vpc.png)
+![terraform state show](./pictures/3_State_show_vpc.png)
 
 Запоминаем id=enp0pomi1nkvr37276dk
 
 terraform state rm 'module.develop_a.yandex_vpc_network.mod_vpc'
 
-[terraform state rm](./pictures/3_State_rm_vpc.png)
+![terraform state rm](./pictures/3_State_rm_vpc.png)
 
 terraform import 'module.develop_a.yandex_vpc_network.mod_vpc' enp0pomi1nkvr37276dk
 
-[terraform import](./pictures/3_Import_vpc.png)
+![terraform import](./pictures/3_Import_vpc.png)
 
 terraform state show 'module.test-vm.yandex_compute_instance.vm[0]'
 
-[terraform state show](./pictures/3_State_show_vm.png)
+![terraform state show](./pictures/3_State_show_vm.png)
 
 Запоминаем id=fhmfbmqsravpvh7885iv
 
 terraform state rm 'module.test-vm.yandex_compute_instance.vm[0]'
 
-[terraform state rm](./pictures/3_State_rm_vm.png)
+![terraform state rm](./pictures/3_State_rm_vm.png)
 
 terraform import 'module.test-vm.yandex_compute_instance.vm[0]' fhmfbmqsravpvh7885iv
 
-[terraform import](./pictures/3_Import_vm.png)
+![terraform import](./pictures/3_Import_vm.png)
 
 Проверяем, terraform plan
 
-[terraform plan](./pictures/3_Terraform_plan.png)
+![terraform plan](./pictures/3_Terraform_plan.png)
 
 Значимых изменений нет
 
