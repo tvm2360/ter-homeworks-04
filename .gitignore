@@ -10,4 +10,5 @@
 
 # own secret vars store.
 personal.auto.tfvars
+personal.locals.tf
 
