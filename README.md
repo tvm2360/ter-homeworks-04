@@ -186,8 +186,88 @@ terraform import 'module.test-vm.yandex_compute_instance.vm[0]' fhmfbmqsravpvh78
 
 Значимых изменений нет
 
+## Задание 4
 
+Определения для сетей:
 
+variables.tf:
 
+``` terraform
+#variable "vpc_subnet_a_zone" {
+#  type        = string
+#  description = "https://cloud.yandex.ru/docs/overview/concepts/geo-scope"
+#}
+#variable "vpc_subnet_b_zone" {
+#  type        = string
+#  description = "https://cloud.yandex.ru/docs/overview/concepts/geo-scope"
+#}
+#variable "vpc_subnet_a_cidr" {
+#  type        = list(string)
+#  description = "https://cloud.yandex.ru/docs/vpc/operations/subnet-create"
+#}
+#variable "vpc_subnet_b_cidr" {
+#  type        = list(string)
+#  description = "https://cloud.yandex.ru/docs/vpc/operations/subnet-create"
+#}
 
+variable "vpc_subnet_a_zone_with_cidr" {
+  type        = list(object({
+    zone      = string
+    cidr      = string
+  }))
+  description = "https://cloud.yandex.ru/docs/overview/concepts/geo-scope | https://cloud.yandex.ru/docs/vpc/operations/subnet-create"
+}
+variable "vpc_subnet_b_zone_with_cidr" {
+  type        = list(object({
+    zone      = string
+    cidr      = string
+  }))
+  description = "https://cloud.yandex.ru/docs/overview/concepts/geo-scope | https://cloud.yandex.ru/docs/vpc/operations/subnet-create"
+}
+```
+
+network.auto.tfvars:
+
+``` terraform
+#vpc_subnet_a_zone = "ru-central1-a"
+#vpc_subnet_b_zone = "ru-central1-b"
+#vpc_subnet_a_cidr = ["10.0.1.0/24"]
+#vpc_subnet_b_cidr = ["10.0.2.0/24"]
+
+vpc_subnet_a_zone_with_cidr = [
+  { zone = "ru-central1-a", cidr = "10.0.1.0/24" },
+  { zone = "ru-central1-b", cidr = "10.0.2.0/24" },
+  { zone = "ru-central1-d", cidr = "10.0.3.0/24" },
+]
+
+vpc_subnet_b_zone_with_cidr = [
+  { zone = "ru-central1-a", cidr = "10.0.1.0/24" },
+]
+```
+
+Добавляем возврат из модуля - списки подсетей и зон:
+
+./vpc/output.tf:
+
+``` terraform
+#output "subnet_id" {
+#   value = yandex_vpc_subnet.mod_vpc_subnet.id
+#}
+
+output "subnet_id" {
+   value = concat( [for k, v in yandex_vpc_subnet.mod_vpc_subnet : format("%s", v.id)] )
+}
+
+output "subnet_zones" {
+   value = concat( [for k, v in yandex_vpc_subnet.mod_vpc_subnet : format("%s", v.zone)] )
+}
+```
+
+Результаты:
+
+![Results](./pictures/4_Yc.png)
+
+terraform plan:
+
+![terraform plan](./pictures/4_Terraform_plan.png)
 

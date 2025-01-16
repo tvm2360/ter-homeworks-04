@@ -28,21 +28,37 @@ variable "vpc_subnet_b_name" {
   type        = string
   description = "VPC subnet 'b' name"
 }
-variable "vpc_subnet_a_zone" {
-  type        = string
-  description = "https://cloud.yandex.ru/docs/overview/concepts/geo-scope"
+
+#variable "vpc_subnet_a_zone" {
+#  type        = string
+#  description = "https://cloud.yandex.ru/docs/overview/concepts/geo-scope"
+#}
+#variable "vpc_subnet_b_zone" {
+#  type        = string
+#  description = "https://cloud.yandex.ru/docs/overview/concepts/geo-scope"
+#}
+#variable "vpc_subnet_a_cidr" {
+#  type        = list(string)
+#  description = "https://cloud.yandex.ru/docs/vpc/operations/subnet-create"
+#}
+#variable "vpc_subnet_b_cidr" {
+#  type        = list(string)
+#  description = "https://cloud.yandex.ru/docs/vpc/operations/subnet-create"
+#}
+
+variable "vpc_subnet_a_zone_with_cidr" {
+  type        = list(object({
+    zone      = string
+    cidr      = string
+  }))
+  description = "https://cloud.yandex.ru/docs/overview/concepts/geo-scope | https://cloud.yandex.ru/docs/vpc/operations/subnet-create"
 }
-variable "vpc_subnet_b_zone" {
-  type        = string
-  description = "https://cloud.yandex.ru/docs/overview/concepts/geo-scope"
-}
-variable "vpc_subnet_a_cidr" {
-  type        = list(string)
-  description = "https://cloud.yandex.ru/docs/vpc/operations/subnet-create"
-}
-variable "vpc_subnet_b_cidr" {
-  type        = list(string)
-  description = "https://cloud.yandex.ru/docs/vpc/operations/subnet-create"
+variable "vpc_subnet_b_zone_with_cidr" {
+  type        = list(object({
+    zone      = string
+    cidr      = string
+  }))
+  description = "https://cloud.yandex.ru/docs/overview/concepts/geo-scope | https://cloud.yandex.ru/docs/vpc/operations/subnet-create"
 }
 
 ### Переменные для модуля test-vm (инициализация инстанса)
