@@ -275,23 +275,23 @@ terraform plan:
 
 [LOG terraform plan](./pictures/plan.log)
 
-[MySQL Cluster](./pictures/5_MySQL_Cluster.png)
+![MySQL Cluster](./pictures/5_MySQL_Cluster.png)
 
-[DB](./pictures/5_DB.png)
+![DB](./pictures/5_DB.png)
 
-[User](./pictures/5_User.png)
+![User](./pictures/5_User.png)
 
 no HA:
 
-[noHA](./pictures/5_Hosts_noHA.png)
+![noHA](./pictures/5_Hosts_noHA.png)
 
 no HA -> HA:
 
-[noHA->HA](./pictures/5_Cluster_noHA-HA_plan.png)
+![noHA->HA](./pictures/5_Cluster_noHA-HA_plan.png)
 
 HA:
 
-[HA](./pictures/5_Hosts_HA.png)
+![HA](./pictures/5_Hosts_HA.png)
 
 
 
