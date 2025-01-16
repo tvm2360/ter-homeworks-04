@@ -2,7 +2,6 @@
 
 variable "mod_vpc_name" {
   type        = string
-  default     = ""
   description = "VPC name"
 }
 

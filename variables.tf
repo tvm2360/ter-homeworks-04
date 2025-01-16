@@ -28,6 +28,10 @@ variable "vpc_subnet_b_name" {
   type        = string
   description = "VPC subnet 'b' name"
 }
+variable "vpc_subnet_mysql_name" {
+  type        = string
+  description = "VPC subnet MySQL name"
+}
 
 #variable "vpc_subnet_a_zone" {
 #  type        = string
@@ -54,6 +58,13 @@ variable "vpc_subnet_a_zone_with_cidr" {
   description = "https://cloud.yandex.ru/docs/overview/concepts/geo-scope | https://cloud.yandex.ru/docs/vpc/operations/subnet-create"
 }
 variable "vpc_subnet_b_zone_with_cidr" {
+  type        = list(object({
+    zone      = string
+    cidr      = string
+  }))
+  description = "https://cloud.yandex.ru/docs/overview/concepts/geo-scope | https://cloud.yandex.ru/docs/vpc/operations/subnet-create"
+}
+variable "vpc_subnet_mysql_zone_with_cidr" {
   type        = list(object({
     zone      = string
     cidr      = string
@@ -134,4 +145,38 @@ variable "module_2_serial-port" {
 variable "cloudinit_user_name" {
   type        = string
   description = "User name for cloud-init.yaml"
+}
+
+### Переменные для MySQL Cluster
+
+variable "mysql_cluster_name" {
+  type        = string
+  description = "Name for MySQL HA Cluster"
+}
+
+variable "mysql_cluster_HA" {
+  type        = bool
+  default     = false
+  description = "MySQL Cluster is HA?"
+}
+
+### Переменные для MySQL Cluster Database
+
+variable "mysql_cluster_db_name" {
+  type        = string
+  description = "Name for database MySQL"
+}
+
+### Переменные для MySQL Cluster User
+
+variable "mysql_cluster_username" {
+  type        = string
+  sensitive   = true
+  description = "MySQL username"
+}
+
+variable "mysql_cluster_password" {
+  type        = string
+  sensitive   = true
+  description = "MySQL usernames password"
 }

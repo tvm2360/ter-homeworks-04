@@ -32,8 +32,8 @@ module "develop_b" {
 #  mod_vpc_subnet_zone           = var.vpc_subnet_b_zone
 #  mod_vpc_subnet_cidr           = var.vpc_subnet_b_cidr
   mod_vpc_subnet_zone_with_cidr = var.vpc_subnet_b_zone_with_cidr
-
 }
+
 
 # Инициализация модулей (инстансов)
 module "test-vm" {
@@ -84,6 +84,30 @@ module "example-vm" {
     user-data          = data.template_file.cloudinit.rendered
     serial-port-enable = var.module_2_serial-port
   }
+}
+
+module "mysql-develop" {
+  source       = "./mysql"
+  mod_cluster_name            = var.mysql_cluster_name
+  mod_cluster_network_id      = module.develop_a.network_id
+  mod_cluster_subnet_id       = module.develop_a.subnet_id[0]
+  mod_cluster_zone            = module.develop_a.subnet_zones[0]
+  mod_cluster_HA              = var.mysql_cluster_HA
+#  mod_cluster_HA_number_hosts = 3
+}
+
+module "mysql-develop-database" {
+  source       = "./mysql-database"
+  mod_mysql_cluster_id      = module.mysql-develop.mysql_cluster_id
+  mod_mysql_cluster_db_name = var.mysql_cluster_db_name
+}
+
+module "mysql-develop-user" {
+  source       = "./mysql-user"
+  mod_mysql_cluster_id               = module.mysql-develop.mysql_cluster_id
+  mod_mysql_cluster_database_name    = var.mysql_cluster_db_name
+  mod_mysql_cluster_username         = var.mysql_cluster_username
+  mod_mysql_cluster_password         = var.mysql_cluster_password
 }
 
 data "template_file" "cloudinit" {

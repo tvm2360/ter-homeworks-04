@@ -11,3 +11,7 @@ module_2_instance_count = 1
 module_2_label = "analytics"
 # cloudinit
 cloudinit_user_name = "ubuntu"
+# mysql
+mysql_cluster_name = "ha-cl-mysql"
+mysql_cluster_HA = true
+mysql_cluster_db_name = "test"
