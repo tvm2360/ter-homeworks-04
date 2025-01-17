@@ -300,15 +300,15 @@ Check: CKV_YC_11: "Ensure security group is assigned to network interface."
 
 TFLint
 
-Было: ![tflint_old](./docs/tflint_old.log)
+Было: [tflint_old](./docs/tflint_old.log)
 
-Стало: ![tflint](./docs/tflint.log)
+Стало: [tflint](./docs/tflint.log)
 
 Checkov
 
-Было: ![checkov_old](./docs/checkov_old.log)
+Было: [checkov_old](./docs/checkov_old.log)
 
-Стало: ![checkov](./docs/checkov.log)
+Стало: [checkov](./docs/checkov.log)
 
 Изменения:
 
@@ -320,9 +320,7 @@ Checkov
 
 4. Запрет на выдачу инстансам публичных IP
 
-Изменение плана (после апргрейда провайдеров):
-
-![Terraform_init_s3](./docs/plan_diff.log)
+Изменение плана (после апргрейда провайдеров) [Terraform_init_s3](./docs/plan_diff.log)
 
 Merge PR (https://github.com/tvm2360/ter-homeworks-04/commit/ae801659f1834aa73a87f6e87f19624dd8f34519)
 
