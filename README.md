@@ -279,3 +279,19 @@ Check: CKV_YC_11: "Ensure security group is assigned to network interface."
 
 1. Инстансам не назначать (ограничивать) публичные IP
 2. Группам безопасности не назначать сетевые интерфейсы
+
+## Задание 2
+
+![Terraform_init_s3](./pictures/05/2_Terraform_init_s3.png)
+
+![Terraform_init_backend](./pictures/05/2_Terraform_init_backend.png)
+
+![S3_state](./pictures/05/2_S3_state.png)
+
+![Terraform_console_before_migrate_state](./pictures/05/2_Terraform_console_before_migrate_state.png)
+
+![Terraform_console_migrate_state](./pictures/05/2_Terraform_console_migrate_state.png)
+
+![Terraform_console_locked_state](./pictures/05/2_Terraform_console_locked_state.png)
+
+![Terraform_console_unlock](./pictures/05/2_Terraform_console_unlock.png)

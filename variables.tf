@@ -180,3 +180,4 @@ variable "mysql_cluster_password" {
   sensitive   = true
   description = "MySQL usernames password"
 }
+
