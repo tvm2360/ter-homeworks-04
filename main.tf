@@ -37,7 +37,7 @@ module "develop_b" {
 
 # Инициализация модулей (инстансов)
 module "test-vm" {
-  source         = "git::https://github.com/udjin10/yandex_compute_instance.git?ref=main"
+  source         = "git::https://github.com/udjin10/yandex_compute_instance.git?ref=dev"
   env_name       = var.module_1_env_name
 #  network_id     = yandex_vpc_network.develop.id
   network_id     = module.develop_a.network_id
@@ -62,7 +62,7 @@ module "test-vm" {
 }
 
 module "example-vm" {
-  source         = "git::https://github.com/udjin10/yandex_compute_instance.git?ref=main"
+  source         = "git::https://github.com/udjin10/yandex_compute_instance.git?ref=dev"
   env_name       = var.module_2_env_name
 #  network_id     = yandex_vpc_network.develop.id
   network_id     = module.develop_b.network_id

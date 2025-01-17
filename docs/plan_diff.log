@@ -1,0 +1,70 @@
+data.template_file.cloudinit: Reading...
+module.develop_a.random_string.random_suffix: Refreshing state... [id=ikrk1]
+module.develop_b.random_string.random_suffix: Refreshing state... [id=5sa16]
+data.template_file.cloudinit: Read complete after 0s [id=4f1a2b5df23937a080b6e10666d95a90f55f32c2a289f358021ea9541124475e]
+module.example-vm.data.yandex_compute_image.my_image: Reading...
+module.test-vm.data.yandex_compute_image.my_image: Reading...
+module.develop_b.yandex_vpc_network.mod_vpc: Refreshing state... [id=enp8m2r4b6inkeson30s]
+module.develop_a.yandex_vpc_network.mod_vpc: Refreshing state... [id=enp1lor0tm8gh6lb5cdr]
+module.example-vm.data.yandex_compute_image.my_image: Read complete after 1s [id=fd8akibn38safki23h0q]
+module.test-vm.data.yandex_compute_image.my_image: Read complete after 1s [id=fd8akibn38safki23h0q]
+module.develop_a.yandex_vpc_subnet.mod_vpc_subnet["2"]: Refreshing state... [id=fl813dmrpjta1g495ao9]
+module.mysql-develop.yandex_vpc_security_group.mysql-sg: Refreshing state... [id=enpphgotcnnj27okmses]
+module.develop_a.yandex_vpc_subnet.mod_vpc_subnet["0"]: Refreshing state... [id=e9bj45th5d6l898u380v]
+module.develop_a.yandex_vpc_subnet.mod_vpc_subnet["1"]: Refreshing state... [id=e2lllrr0kguj5uk93ogd]
+module.develop_b.yandex_vpc_subnet.mod_vpc_subnet["0"]: Refreshing state... [id=e9bjpb11ukv7r5i4fh8b]
+module.example-vm.yandex_compute_instance.vm[0]: Refreshing state... [id=fhmed4hnj3sjpsgagi9s]
+module.test-vm.yandex_compute_instance.vm[0]: Refreshing state... [id=fhmipo9b2trlfmdflj4a]
+module.mysql-develop.yandex_mdb_mysql_cluster.my-mysql: Refreshing state... [id=c9ql314ak7sa6uqnnlni]
+module.test-vm.yandex_compute_instance.vm[1]: Refreshing state... [id=epdakucfrc8hi0bv9eb2]
+module.mysql-develop-database.yandex_mdb_mysql_database.db: Refreshing state... [id=c9ql314ak7sa6uqnnlni:test]
+module.mysql-develop-user.yandex_mdb_mysql_user.user1: Refreshing state... [id=c9ql314ak7sa6uqnnlni:app]
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  ~ update in-place
+
+Terraform will perform the following actions:
+
+  # module.example-vm.yandex_compute_instance.vm[0] will be updated in-place
+  ~ resource "yandex_compute_instance" "vm" {
+        id                        = "fhmed4hnj3sjpsgagi9s"
+        name                      = "stage-web-stage-0"
+        # (15 unchanged attributes hidden)
+
+      ~ network_interface {
+          ~ nat                = true -> false
+            # (10 unchanged attributes hidden)
+        }
+
+        # (5 unchanged blocks hidden)
+    }
+
+  # module.test-vm.yandex_compute_instance.vm[0] will be updated in-place
+  ~ resource "yandex_compute_instance" "vm" {
+        id                        = "fhmipo9b2trlfmdflj4a"
+        name                      = "develop-webs-0"
+        # (15 unchanged attributes hidden)
+
+      ~ network_interface {
+          ~ nat                = true -> false
+            # (10 unchanged attributes hidden)
+        }
+
+        # (5 unchanged blocks hidden)
+    }
+
+  # module.test-vm.yandex_compute_instance.vm[1] will be updated in-place
+  ~ resource "yandex_compute_instance" "vm" {
+        id                        = "epdakucfrc8hi0bv9eb2"
+        name                      = "develop-webs-1"
+        # (15 unchanged attributes hidden)
+
+      ~ network_interface {
+          ~ nat                = true -> false
+            # (10 unchanged attributes hidden)
+        }
+
+        # (5 unchanged blocks hidden)
+    }
+
+Plan: 0 to add, 3 to change, 0 to destroy.

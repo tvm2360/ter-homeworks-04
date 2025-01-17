@@ -16,10 +16,10 @@ variable "default_zone" {
 
 # Переменные для инициализации сети
 
-variable "vpc_name" {
-  type        = string
-  description = "VPC name"
-}
+#variable "vpc_name" {
+#  type        = string
+#  description = "VPC name"
+#}
 variable "vpc_subnet_a_name" {
   type        = string
   description = "VPC subnet 'a' name"
@@ -28,10 +28,10 @@ variable "vpc_subnet_b_name" {
   type        = string
   description = "VPC subnet 'b' name"
 }
-variable "vpc_subnet_mysql_name" {
-  type        = string
-  description = "VPC subnet MySQL name"
-}
+#variable "vpc_subnet_mysql_name" {
+#  type        = string
+#  description = "VPC subnet MySQL name"
+#}
 
 #variable "vpc_subnet_a_zone" {
 #  type        = string
@@ -64,13 +64,13 @@ variable "vpc_subnet_b_zone_with_cidr" {
   }))
   description = "https://cloud.yandex.ru/docs/overview/concepts/geo-scope | https://cloud.yandex.ru/docs/vpc/operations/subnet-create"
 }
-variable "vpc_subnet_mysql_zone_with_cidr" {
-  type        = list(object({
-    zone      = string
-    cidr      = string
-  }))
-  description = "https://cloud.yandex.ru/docs/overview/concepts/geo-scope | https://cloud.yandex.ru/docs/vpc/operations/subnet-create"
-}
+#variable "vpc_subnet_mysql_zone_with_cidr" {
+#  type        = list(object({
+#    zone      = string
+#    cidr      = string
+#  }))
+#  description = "https://cloud.yandex.ru/docs/overview/concepts/geo-scope | https://cloud.yandex.ru/docs/vpc/operations/subnet-create"
+#}
 
 ### Переменные для модуля test-vm (инициализация инстанса)
 
@@ -93,7 +93,8 @@ variable "module_1_image_family" {
 }
 variable "module_1_public_ip" {
   type        = bool
-  default     = true
+#  default     = true
+  default     = false
   description = "Module test-vm with public ip"
 }
 variable "module_1_label" {
@@ -127,7 +128,8 @@ variable "module_2_image_family" {
 }
 variable "module_2_public_ip" {
   type        = bool
-  default     = true
+#  default     = true
+  default     = false
   description = "Module example-vm with public ip"
 }
 variable "module_2_label" {

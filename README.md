@@ -295,3 +295,6 @@ Check: CKV_YC_11: "Ensure security group is assigned to network interface."
 ![Terraform_console_locked_state](./pictures/05/2_Terraform_console_locked_state.png)
 
 ![Terraform_console_unlock](./pictures/05/2_Terraform_console_unlock.png)
+
+## Задание 3
+
