@@ -1,0 +1,62 @@
+
+       _               _
+   ___| |__   ___  ___| | _______   __
+  / __| '_ \ / _ \/ __| |/ / _ \ \ / /
+ | (__| | | |  __/ (__|   < (_) \ V /
+  \___|_| |_|\___|\___|_|\_\___/ \_/
+
+By Prisma Cloud | version: 3.2.353 
+
+terraform_plan scan results:
+
+Passed checks: 6, Failed checks: 6, Skipped checks: 0
+
+Check: CKV_YC_4: "Ensure compute instance does not have serial console enabled."
+	PASSED for resource: module.example-vm.yandex_compute_instance.vm[0]
+	File: /tfplan.json:371-465
+Check: CKV_YC_1: "Ensure security group is assigned to database cluster."
+	PASSED for resource: module.mysql-develop.yandex_mdb_mysql_cluster.my-mysql
+	File: /tfplan.json:515-601
+Check: CKV_YC_12: "Ensure public IP is not assigned to database cluster."
+	PASSED for resource: module.mysql-develop.yandex_mdb_mysql_cluster.my-mysql
+	File: /tfplan.json:515-601
+Check: CKV_YC_19: "Ensure security group does not contain allow-all rules."
+	PASSED for resource: module.mysql-develop.yandex_vpc_security_group.mysql-sg
+	File: /tfplan.json:640-668
+Check: CKV_YC_4: "Ensure compute instance does not have serial console enabled."
+	PASSED for resource: module.test-vm.yandex_compute_instance.vm[0]
+	File: /tfplan.json:760-854
+Check: CKV_YC_4: "Ensure compute instance does not have serial console enabled."
+	PASSED for resource: module.test-vm.yandex_compute_instance.vm[1]
+	File: /tfplan.json:900-994
+Check: CKV_YC_2: "Ensure compute instance does not have public IP."
+	FAILED for resource: module.example-vm.yandex_compute_instance.vm[0]
+	File: /tfplan.json:371-465
+
+		Code lines for this resource are too many. Please use IDE of your choice to review the file.
+Check: CKV_YC_11: "Ensure security group is assigned to network interface."
+	FAILED for resource: module.example-vm.yandex_compute_instance.vm[0]
+	File: /tfplan.json:371-465
+
+		Code lines for this resource are too many. Please use IDE of your choice to review the file.
+Check: CKV_YC_2: "Ensure compute instance does not have public IP."
+	FAILED for resource: module.test-vm.yandex_compute_instance.vm[0]
+	File: /tfplan.json:760-854
+
+		Code lines for this resource are too many. Please use IDE of your choice to review the file.
+Check: CKV_YC_11: "Ensure security group is assigned to network interface."
+	FAILED for resource: module.test-vm.yandex_compute_instance.vm[0]
+	File: /tfplan.json:760-854
+
+		Code lines for this resource are too many. Please use IDE of your choice to review the file.
+Check: CKV_YC_2: "Ensure compute instance does not have public IP."
+	FAILED for resource: module.test-vm.yandex_compute_instance.vm[1]
+	File: /tfplan.json:900-994
+
+		Code lines for this resource are too many. Please use IDE of your choice to review the file.
+Check: CKV_YC_11: "Ensure security group is assigned to network interface."
+	FAILED for resource: module.test-vm.yandex_compute_instance.vm[1]
+	File: /tfplan.json:900-994
+
+		Code lines for this resource are too many. Please use IDE of your choice to review the file.
+

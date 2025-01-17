@@ -10,8 +10,4 @@
 
 # own secret vars store.
 personal.auto.tfvars
-personal.locals.tf
 
-# tfplan
-tfplan.binary
-tfplan.json

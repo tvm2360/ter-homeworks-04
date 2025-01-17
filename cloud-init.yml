@@ -1,0 +1,15 @@
+#cloud-config
+users:
+  - default
+  - name: ${username}
+    sudo: ["ALL=(ALL) NOPASSWD:ALL"]
+    groups: sudo
+    shell: /bin/bash
+    ssh_authorized_keys:
+      - ${ssh_public_key}
+
+package_update: true
+package_upgrade: false
+packages:
+  - vim
+  - nginx
