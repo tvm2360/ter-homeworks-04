@@ -1,0 +1,53 @@
+7 issue(s) found:
+
+Warning: Module source "git::https://github.com/udjin10/yandex_compute_instance.git?ref=main" uses a default branch as ref (main) (terraform_module_pinned_source)
+
+  on main.tf line 40:
+  40:   source         = "git::https://github.com/udjin10/yandex_compute_instance.git?ref=main"
+
+Reference: https://github.com/terraform-linters/tflint-ruleset-terraform/blob/v0.10.0/docs/rules/terraform_module_pinned_source.md
+
+Warning: Module source "git::https://github.com/udjin10/yandex_compute_instance.git?ref=main" uses a default branch as ref (main) (terraform_module_pinned_source)
+
+  on main.tf line 65:
+  65:   source         = "git::https://github.com/udjin10/yandex_compute_instance.git?ref=main"
+
+Reference: https://github.com/terraform-linters/tflint-ruleset-terraform/blob/v0.10.0/docs/rules/terraform_module_pinned_source.md
+
+Warning: Missing version constraint for provider "template" in `required_providers` (terraform_required_providers)
+
+  on main.tf line 113:
+ 113: data "template_file" "cloudinit" {
+
+Reference: https://github.com/terraform-linters/tflint-ruleset-terraform/blob/v0.10.0/docs/rules/terraform_required_providers.md
+
+Warning: Missing version constraint for provider "yandex" in `required_providers` (terraform_required_providers)
+
+  on providers.tf line 4:
+   4:     yandex = {
+   5:       source = "yandex-cloud/yandex"
+   6:     }
+
+Reference: https://github.com/terraform-linters/tflint-ruleset-terraform/blob/v0.10.0/docs/rules/terraform_required_providers.md
+
+Warning: [Fixable] variable "vpc_name" is declared but not used (terraform_unused_declarations)
+
+  on variables.tf line 19:
+  19: variable "vpc_name" {
+
+Reference: https://github.com/terraform-linters/tflint-ruleset-terraform/blob/v0.10.0/docs/rules/terraform_unused_declarations.md
+
+Warning: [Fixable] variable "vpc_subnet_mysql_name" is declared but not used (terraform_unused_declarations)
+
+  on variables.tf line 31:
+  31: variable "vpc_subnet_mysql_name" {
+
+Reference: https://github.com/terraform-linters/tflint-ruleset-terraform/blob/v0.10.0/docs/rules/terraform_unused_declarations.md
+
+Warning: [Fixable] variable "vpc_subnet_mysql_zone_with_cidr" is declared but not used (terraform_unused_declarations)
+
+  on variables.tf line 67:
+  67: variable "vpc_subnet_mysql_zone_with_cidr" {
+
+Reference: https://github.com/terraform-linters/tflint-ruleset-terraform/blob/v0.10.0/docs/rules/terraform_unused_declarations.md
+
