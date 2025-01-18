@@ -41,10 +41,12 @@ variable "vpc_subnet_b_name" {
 #  type        = string
 #  description = "https://cloud.yandex.ru/docs/overview/concepts/geo-scope"
 #}
+
 #variable "vpc_subnet_a_cidr" {
 #  type        = list(string)
 #  description = "https://cloud.yandex.ru/docs/vpc/operations/subnet-create"
 #}
+
 #variable "vpc_subnet_b_cidr" {
 #  type        = list(string)
 #  description = "https://cloud.yandex.ru/docs/vpc/operations/subnet-create"
@@ -93,8 +95,8 @@ variable "module_1_image_family" {
 }
 variable "module_1_public_ip" {
   type        = bool
-#  default     = true
-  default     = false
+  default     = true
+#  default     = false
   description = "Module test-vm with public ip"
 }
 variable "module_1_label" {
@@ -128,8 +130,8 @@ variable "module_2_image_family" {
 }
 variable "module_2_public_ip" {
   type        = bool
-#  default     = true
-  default     = false
+  default     = true
+#  default     = false
   description = "Module example-vm with public ip"
 }
 variable "module_2_label" {
@@ -182,4 +184,32 @@ variable "mysql_cluster_password" {
   sensitive   = true
   description = "MySQL usernames password"
 }
+
+variable "test_hw04_1" {
+  type        = string
+  description = "https://cloud.yandex.ru/docs/vpc/operations/subnet-create"
+  default = "192.168.0.1"
+  validation {
+    condition = can(regex("^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$", var.test_hw04_1) )
+    error_message = "Must be a valid IPv4 address"
+  }
+}
+
+variable "test_hw04_2" {
+  type        = list(string)
+  description = "https://cloud.yandex.ru/docs/vpc/operations/subnet-create"
+  default = ["192.168.0.1", "1.1.1.1", "127.0.0.1"]
+  validation {
+    condition = alltrue([
+      for n in var.test_hw04_2 :
+      can( regex("^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$", n) )
+    ])
+    error_message = "Must be a valid IPv4 address"
+  }
+}
+
+
+
+
+
 

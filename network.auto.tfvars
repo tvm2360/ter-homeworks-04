@@ -23,3 +23,4 @@ vpc_subnet_b_zone_with_cidr = [
 #  { zone = "ru-central1-b", cidr = "10.0.2.0/24" },
 #  { zone = "ru-central1-d", cidr = "10.0.3.0/24" },
 #]
+

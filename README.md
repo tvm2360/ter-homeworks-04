@@ -324,4 +324,46 @@ Checkov
 
 Merge PR (https://github.com/tvm2360/ter-homeworks-04/commit/ae801659f1834aa73a87f6e87f19624dd8f34519)
 
+## Задание 4
+
+Валидация для тестовой переменной test_hw04_1:
+
+``` terraform
+variable "test_hw04_1" {
+  type        = string
+  description = "https://cloud.yandex.ru/docs/vpc/operations/subnet-create"
+  validation {
+    condition = can(regex("^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$", var.test_hw04_1) )
+    error_message = "Must be a valid IPv4 address"
+  }
+}
+```
+
+Валидация для тестовой переменной test_hw04_2:
+
+``` terraform
+variable "test_hw04_2" {
+  type        = list(string)
+  description = "https://cloud.yandex.ru/docs/vpc/operations/subnet-create"
+  validation {
+    condition = alltrue([
+      for n in var.test_hw04_2 :
+      can( regex("^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$", n) )
+    ])
+    error_message = "Must be a valid IPv4 address"
+  }
+}
+```
+
+terraform console
+
+test_hw04_1 (default = "192.168.0.1"), test_hw04_2 (default = ["192.168.0.1", "1.1.1.1", "127.0.0.1"]):
+
+![Terraform_console_Ok](./pictures/05/4_Ok.png)
+
+terraform console
+
+test_hw04_1 (default = "1920.168.0.1"), test_hw04_2 (default = ["192.168.0.1", "1.1.1.1", "1270.0.0.1"]):
+
+![Terraform_console_Error](./pictures/05/4_Error.png)
 
