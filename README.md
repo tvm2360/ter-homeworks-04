@@ -367,3 +367,47 @@ test_hw04_1 (default = "1920.168.0.1"), test_hw04_2 (default = ["192.168.0.1", "
 
 ![Terraform_console_Error](./pictures/05/4_Error.png)
 
+## Задание 5
+
+Валидация для тестовой переменной test_hw04_3:
+
+``` terraform
+variable "test_hw04_3" {
+  type        = string
+  description = "любая строка"
+  validation {
+    condition = lower(var.test_hw04_3) == var.test_hw04_3
+    error_message = "An uppercase character was found"
+  }
+}
+```
+
+Валидация для тестовой переменной in_the_end_there_can_be_only_one:
+
+``` terraform
+variable "in_the_end_there_can_be_only_one" {
+    description="Who is better Connor or Duncan?"
+    type = object({
+        Dunkan = optional(bool)
+        Connor = optional(bool)
+    })
+
+
+    validation {
+        error_message = "There can be only one MacLeod"
+        condition = var.in_the_end_there_can_be_only_one.Dunkan != var.in_the_end_there_can_be_only_one.Connor
+    }
+}
+```
+
+terraform console
+
+test_hw04_1 (default = "qwerty"), in_the_end_there_can_be_only_one (default = { Dunkan = true  Connor = false }):
+
+![Terraform_console_Ok](./pictures/05/5_Ok.png)
+
+terraform console
+
+test_hw04_1 (default = "QwErTy"), in_the_end_there_can_be_only_one (default = { Dunkan = true  Connor = true }):
+
+![Terraform_console_Error](./pictures/05/5_Error.png)

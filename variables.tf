@@ -190,7 +190,7 @@ variable "test_hw04_1" {
   description = "https://cloud.yandex.ru/docs/vpc/operations/subnet-create"
   default = "192.168.0.1"
   validation {
-    condition = can(regex("^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$", var.test_hw04_1) )
+    condition = can( regex("^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$", var.test_hw04_1) )
     error_message = "Must be a valid IPv4 address"
   }
 }
@@ -208,8 +208,31 @@ variable "test_hw04_2" {
   }
 }
 
+variable "test_hw04_3" {
+  type        = string
+  description = "любая строка"
+  default = "qwerty"
+  validation {
+    condition = lower(var.test_hw04_3) == var.test_hw04_3
+    error_message = "An uppercase character was found"
+  }
+}
 
 
+variable "in_the_end_there_can_be_only_one" {
+    description="Who is better Connor or Duncan?"
+    type = object({
+        Dunkan = optional(bool)
+        Connor = optional(bool)
+    })
 
+    default = {
+        Dunkan = true
+        Connor = false
+    }
 
-
+    validation {
+        error_message = "There can be only one MacLeod"
+        condition = var.in_the_end_there_can_be_only_one.Dunkan != var.in_the_end_there_can_be_only_one.Connor
+    }
+}
