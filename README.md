@@ -367,7 +367,7 @@ test_hw04_1 (default = "1920.168.0.1"), test_hw04_2 (default = ["192.168.0.1", "
 
 ![Terraform_console_Error](./pictures/05/4_Error.png)
 
-## Задание 5 *
+## Задание 5*
 
 Валидация для тестовой переменной test_hw04_3:
 
@@ -412,7 +412,9 @@ test_hw04_1 (default = "QwErTy"), in_the_end_there_can_be_only_one (default = { 
 
 ![Terraform_console_Error](./pictures/05/5_Error.png)
 
-## Задание 6 *
+## Задание 6*
+
+Gitlab:
 
 ![Gitlab](./pictures/05/6_Gitlab.png)
 
